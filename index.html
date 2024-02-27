@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秘密のメッセージ</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .centered-content {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  .message {
+    font-size: 24px;
+    color: #333;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+</style>
 </head>
 <body>
-    <div class="centered-content">
-        <p>この GitHub Pages の名前の由来が分かるのは、関係者のみだぜ。</p>
-    </div>
-    <script>
-      window.onload = function() {
-        console.info('ページが読み込まれたよ！')
-      }
-    </script>
+
+<div class="message">読込完了！</div>
+
+<script>
+  // 画面がロードされたタイミングで実行される関数
+  window.onload = function() {
+
+    // 勝手に追加した console.info
+    console.info('window.flutterScheme:', window.flutterScheme)
+    console.info('window.flutterScheme.postMessage:', window.flutterScheme?.postMessage)
+
+    // flutterSchemeが存在し、postMessage関数を持っているかを確認
+    if (window.flutterScheme && typeof window.flutterScheme.postMessage === 'function') {
+      // postMessage関数を呼び出し、"こんにちは"を引数に渡す
+      window.flutterScheme.postMessage("こんにちは");
+    }
+  };
+</script>
+
 </body>
 </html>
